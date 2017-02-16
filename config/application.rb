@@ -14,6 +14,8 @@ module GraphqlRails
 
     config.autoload_paths << Rails.root.join('app', 'graph')
     config.autoload_paths << Rails.root.join('app', 'graph', 'types')
+    config.autoload_paths << Rails.root.join('app', 'graph', 'schemas')
+    config.autoload_paths << Rails.root.join('app', 'graph', 'mutations')
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
@@ -21,6 +23,6 @@ module GraphqlRails
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
-    
+
   end
 end
